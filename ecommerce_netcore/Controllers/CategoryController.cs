@@ -22,13 +22,6 @@ namespace ecommerce_netcore.Controllers
 
         public IActionResult Create()
         {
-            //var cat = new Category();
-            //cat.Name = "Cat";
-            //cat.DisplayOrder = 1;
-            //cat.UpdatedDateTime = DateTime.Now;
-            //_db.Categories.Add(cat);
-            //_db.SaveChanges();
-
             return View();
         }
 
@@ -43,6 +36,39 @@ namespace ecommerce_netcore.Controllers
 
             category.UpdatedDateTime = DateTime.Now;
             _db.Categories.Add(category);
+            _db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Edit(int? id)
+        {
+            if(id == null || id <= 0)
+            {
+                return NotFound();
+            }
+
+            var category = _db.Categories.Find(id);
+
+            if(category == null)
+            {
+                return NotFound();
+            }
+
+            return View(category);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(Category category)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(category);
+            }
+
+            category.UpdatedDateTime = DateTime.Now;
+            _db.Categories.Update(category);
             _db.SaveChanges();
 
             return RedirectToAction("Index");
