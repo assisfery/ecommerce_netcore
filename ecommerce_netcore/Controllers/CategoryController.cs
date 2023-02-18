@@ -73,5 +73,32 @@ namespace ecommerce_netcore.Controllers
 
             return RedirectToAction("Index");
         }
+
+        public IActionResult Delete(int? id)
+        {
+            if (id == null || id <= 0)
+            {
+                return NotFound();
+            }
+
+            var category = _db.Categories.Find(id);
+
+            if (category == null)
+            {
+                return NotFound();
+            }
+
+            return View(category);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Delete(Category category)
+        {
+            _db.Categories.Remove(category);
+            _db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
     }
 }

@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Delete Category";
+}
+@model Category
+<div>
+    <h1 class="display-4 text-center">@ViewData["Title"]</h1>
+
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <form method="post">
+        <div>
+            <p>Do you realy want to the delete the category @Model.Name ?</p>
+        </div>
+        <br />
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a asp-area="" asp-controller="Category" asp-action="Index">
+            Cancel
+        </a>
+    </form>
+
+</div>
