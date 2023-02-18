@@ -22,14 +22,30 @@ namespace ecommerce_netcore.Controllers
 
         public IActionResult Create()
         {
-            var cat = new Category();
-            cat.Name = "Cat";
-            cat.DisplayOrder = 1;
-            cat.UpdatedDateTime = DateTime.Now;
-            _db.Categories.Add(cat);
-            _db.SaveChanges();
+            //var cat = new Category();
+            //cat.Name = "Cat";
+            //cat.DisplayOrder = 1;
+            //cat.UpdatedDateTime = DateTime.Now;
+            //_db.Categories.Add(cat);
+            //_db.SaveChanges();
 
             return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Category category)
+        {
+            if(!ModelState.IsValid)
+            {
+                return View(category);
+            }
+
+            category.UpdatedDateTime = DateTime.Now;
+            _db.Categories.Add(category);
+            _db.SaveChanges();
+
+            return RedirectToAction("Index");
         }
     }
 }

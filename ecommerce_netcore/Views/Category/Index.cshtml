@@ -4,8 +4,15 @@
 @{
     ViewData["Title"] = "Category";
 }
-<div class="text-center">
-    <h1 class="display-4">@ViewData["Title"]</h1>
+<div>
+
+    <h1 class="display-4 text-center">@ViewData["Title"]</h1>
+
+    <br />
+    <a class="btn btn-primary" asp-area="" asp-controller="Category" asp-action="Create">Create</a>
+    <br />
+    <br />
+
     <table class="table table-bordered table-striped">
         <thead>
             <tr>
@@ -35,4 +42,5 @@
             }
         </tbody>
     </table>
+
 </div>
