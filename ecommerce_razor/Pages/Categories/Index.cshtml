@@ -34,10 +34,10 @@
                 @obj.UpdatedAt
             </td>
             <td>
-                <a asp-controller="Category" asp-action="Edit" asp-route-id="@obj.Id" class="btn btn-default">
+                <a asp-page="Edit" asp-route-id="@obj.Id" class="btn btn-default">
                     Edit
                 </a>
-                <a asp-controller="Category" asp-action="Delete" asp-route-id="@obj.Id" class="btn btn-default">
+                <a asp-page="Delete" asp-route-id="@obj.Id" class="btn btn-default">
                     Delete
                 </a>
             </td>

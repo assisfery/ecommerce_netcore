@@ -1,0 +1,24 @@
+﻿@page
+@model ecommerce_razor.Pages.Categories.EditModel
+@{
+}
+<h1>Edit Category</h1>
+
+<form method="post">
+    <input type="hidden" asp-for="@Model.Category.Id" />
+    <div>
+        <label asp-for="@Model.Category.Name">Name</label>
+        <input asp-for="@Model.Category.Name" class="form-control" />
+        <span class="text-danger" asp-validation-for="~@Model.Category.Name"></span>
+    </div>
+    <div>
+        <label asp-for="@Model.Category.DisplayOrder">DisplayOrder</label>
+        <input asp-for="@Model.Category.DisplayOrder" class="form-control" />
+        <span class="text-danger" asp-validation-for="~@Model.Category.DisplayOrder"></span>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Edit</button>
+    <a asp-page="index">
+        Cancel
+    </a>
+</form>
