@@ -8,10 +8,12 @@
     <div>
         <label asp-for="@Model.Category.Name">Name</label>
         <input asp-for="@Model.Category.Name" class="form-control" />
+        <span class="text-danger" asp-validation-for="~@Model.Category.Name"></span>
     </div>
     <div>
         <label asp-for="@Model.Category.DisplayOrder">DisplayOrder</label>
         <input asp-for="@Model.Category.DisplayOrder" class="form-control" />
+        <span class="text-danger" asp-validation-for="~@Model.Category.DisplayOrder"></span>
     </div>
     <br />
     <button type="submit" class="btn btn-primary">Create</button>

@@ -22,6 +22,11 @@ namespace ecommerce_razor.Pages.Categories
 
         public async Task<IActionResult> OnPost(Category category)
         {
+            if(!ModelState.IsValid)
+            {
+                return Page();
+            }
+
             await _db.Category.AddAsync(category);
             await _db.SaveChangesAsync();
 
