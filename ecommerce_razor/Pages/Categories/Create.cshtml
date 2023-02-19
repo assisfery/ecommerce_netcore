@@ -1,0 +1,21 @@
+﻿@page
+@model ecommerce_razor.Pages.Categories.CreateModel
+@{
+}
+<h1>Create Category</h1>
+
+<form method="post">
+    <div>
+        <label asp-for="@Model.Category.Name">Name</label>
+        <input asp-for="@Model.Category.Name" class="form-control" />
+    </div>
+    <div>
+        <label asp-for="@Model.Category.DisplayOrder">DisplayOrder</label>
+        <input asp-for="@Model.Category.DisplayOrder" class="form-control" />
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Create</button>
+    <a asp-page="index">
+        Cancel
+    </a>
+</form>
